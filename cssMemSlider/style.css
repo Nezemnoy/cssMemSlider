@@ -14,7 +14,7 @@ body{
     font-size: 15px;
     color: #ecdfdf;
     background-size: 100%;
-    background-color: #d7e1e6;
+    background-color: #202426;
     }
 
 
@@ -193,5 +193,58 @@ background-color: #f2f3f7;
 }
 
 
+@media screen and (max-width: 767px){
 
+    .image_container{
+      
+        height: 200px;
+        width: 400px;
+}
+
+
+    .image_wrap {
+        height: 200px;
+        width: 1600px;
+ 
+    }
+
+    .image_screen{
+        width: 400px;
+        height: 200px;
+        margin-top: 15%;
+    
+      }
+
+
+
+.text_buttons{
+    
+
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    align-items: center;
+    /* background-color: #6b3ad6; */
+    gap: 10px;
+    }
+
+    .buttons_wrap{
+      
+        flex-direction: row;
+        overflow: hidden;
+        height: 30px;
+        width: 30%;
+      
+        /* background-color: #e8cf0b; */
+        }
+
+        .text_screen{
+            order: 2;
+            align-self: start;
+        }
+
+        .back{
+           gap:10px        
+        }     
+    }
 
