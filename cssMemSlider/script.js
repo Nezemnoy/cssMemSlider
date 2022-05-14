@@ -143,6 +143,9 @@ BUTTON_4.classList.add('button');
 BUTTON_4.setAttribute("id","button_4");
 BUTTON_CONTAINER_4.appendChild(BUTTON_4);
 
+let clone;
+let idButton; 
+
 
 const move = (button) => {
     console.log(button);
@@ -229,50 +232,95 @@ else if (button === 'button_container_4')
 
 }
 
-BUTTON_CONTAINER_1.addEventListener("click", () =>{
+ document.querySelectorAll('.button_container').forEach(button_container => {
 
-let id = BUTTON_CONTAINER_1.getAttribute('id');
 
-move(id)
+    function moveAt(pageX, pageY) {
+        clone.style.left = pageX - clone.offsetWidth / 2 + 'px';
+        clone.style.top = pageY - clone.offsetHeight / 2 + 'px';
+      }
+
+    function onMouseMove(event) {
+        moveAt(event.pageX, event.pageY);
+      }
+
+     
+    button_container.addEventListener('mousedown', (e) => { 
+        
+       idButton  = button_container.getAttribute('id');
+       console.log(idButton)
+        
+       const button = button_container.querySelector('.button');
+
+       button.classList.add('active_button_pressed')
+    
+       clone = document.createElement('div');
+       clone.classList.add('clone');
+
+       document.body.append(clone);
+       moveAt(e.pageX, e.pageY);
+
+
+
+        clone.addEventListener('mousemove', onMouseMove);
+
+        clone.onmouseout = function() {
+            clone.removeEventListener('mousemove',onMouseMove);
+            clone.onmouseup = null;
+            clone.onmouseout = null;
+            clone.remove();
+            move(idButton);
+            button.classList.remove('active_button_pressed')
+
+       };
+
+
+         clone.onmouseup = function() {
+         clone.removeEventListener('mousemove',onMouseMove);
+         clone.onmouseup = null;
+         clone.remove();
+         move(idButton);
+         button.classList.remove('active_button_pressed')
+    };
+
 
 });
 
-BUTTON_CONTAINER_2.addEventListener("click", () =>{
 
-    let id = BUTTON_CONTAINER_2.getAttribute('id');
+ })
+
+
+
+
+
+
+// BUTTON_CONTAINER_1.addEventListener("click", () =>{
+
+// let id = BUTTON_CONTAINER_1.getAttribute('id');
+
+// move(id)
+
+// });
+
+// BUTTON_CONTAINER_2.addEventListener("click", () =>{
+
+//     let id = BUTTON_CONTAINER_2.getAttribute('id');
     
-move(id)
+// move(id)
     
-    });
+//     });
 
-BUTTON_CONTAINER_3.addEventListener("click", () =>{
+// BUTTON_CONTAINER_3.addEventListener("click", () =>{
 
-let id = BUTTON_CONTAINER_3.getAttribute('id');
+// let id = BUTTON_CONTAINER_3.getAttribute('id');
         
-move(id)
+// move(id)
         
-});
+// });
 
-BUTTON_CONTAINER_4.addEventListener("click", () =>{
+// BUTTON_CONTAINER_4.addEventListener("click", () =>{
 
-let id = BUTTON_CONTAINER_4.getAttribute('id');
+// let id = BUTTON_CONTAINER_4.getAttribute('id');
             
-move(id)
-});
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
+// move(id)
+// });

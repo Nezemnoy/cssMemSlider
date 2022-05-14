@@ -191,6 +191,22 @@ background-color: #f2f3f7;
 .active_btn{
     background-color:unset;
 }
+.clone {
+    background-color: #dae417;
+    box-sizing: border-box;
+    border-radius: 100px;
+    height: 10px;
+    width:10px;    
+    position: absolute; 
+    z-index: 1000;  
+    opacity: 50%;
+ }
+
+ .active_button_pressed{
+    border: 2px solid #f2f3f7;
+    background-color: #f2f3f7;
+
+ }
 
 
 @media screen and (max-width: 767px){
@@ -244,6 +260,9 @@ background-color: #f2f3f7;
 
         .back{
            gap:10px        
-        }     
+        }   
+        
+        
+        
     }
 
